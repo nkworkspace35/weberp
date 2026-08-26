@@ -288,7 +288,7 @@
 
                             <div>
                                 <span>Total Students</span>
-                                <h3>1,248</h3>
+                                <h3 id="statTotalStudents">0</h3> 
                                 <small class="positive">
                                     <i class="fa-solid fa-arrow-up"></i>
                                     8.2% from last month
@@ -309,8 +309,8 @@
                             </div>
 
                             <div>
-                                <span>Total Teachers</span>
-                                <h3>86</h3>
+                              <span>Total Teachers</span>
+                                <h3 id="statTotalTeachers">0</h3>
                                 <small class="positive">
                                     <i class="fa-solid fa-arrow-up"></i>
                                     3.5% from last month
@@ -688,35 +688,78 @@
             </section>
 
 
-            <!-- DYNAMIC PAGE CONTENT -->
+<!-- DYNAMIC PAGE CONTENT -->
+<section id="dynamicPage" class="page-section">
+    
+    <!-- ================= STUDENT CARDS ================= -->
+    
+    <!-- Add Student Form Section -->
+    <div id="addStudentCard" class="dashboard-card" style="margin-bottom: 20px; padding: 20px;">
+        <h3>Add New Student</h3>
+        <form id="addStudentForm" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+            <input type="text" id="firstName" placeholder="First Name" required style="padding: 8px;">
+            <input type="text" id="lastName" placeholder="Last Name" required style="padding: 8px;">
+            <input type="email" id="email" placeholder="Email Address" required style="padding: 8px;">
+            <input type="text" id="phone" placeholder="Phone Number" style="padding: 8px;">
+            <input type="text" id="className" placeholder="Class Name" style="padding: 8px;">
+            <button type="submit" class="btn primary-btn" style="padding: 8px 15px; cursor: pointer;">Save Student</button>
+        </form>
+    </div>
 
-            <section id="dynamicPage" class="page-section">
+    <!-- Student List Table Section -->
+    <div id="studentListCard" class="dashboard-card" style="padding: 20px;">
+        <h3>Student Directory</h3>
+        <table style="width: 100%; text-align: left; margin-top: 15px; border-collapse: collapse;">
+            <thead style="background-color: #f4f4f4;">
+                <tr>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Student Code</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Name</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Email</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Class</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody">
+                <!-- Student rows will be injected here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
 
-                <div class="dashboard-card">
+    <!-- ================= TEACHER CARDS ================= -->
+    
+    <!-- Add Teacher Form Section -->
+    <div id="addTeacherCard" class="dashboard-card" style="display: none; margin-bottom: 20px; padding: 20px;">
+        <h3>Add New Teacher</h3>
+        <form id="addTeacherForm" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+            <input type="text" id="teacherFirstName" placeholder="First Name" required style="padding: 8px;">
+            <input type="text" id="teacherLastName" placeholder="Last Name" required style="padding: 8px;">
+            <input type="email" id="teacherEmail" placeholder="Email Address" required style="padding: 8px;">
+            <input type="text" id="teacherPhone" placeholder="Phone Number" style="padding: 8px;">
+            <input type="text" id="teacherDept" placeholder="Department" style="padding: 8px;">
+            <button type="submit" class="btn primary-btn" style="padding: 8px 15px; cursor: pointer;">Save Teacher</button>
+        </form>
+    </div>
 
-                    <div class="empty-page">
+    <!-- Teacher List Table Section -->
+    <div id="teacherListCard" class="dashboard-card" style="display: none; padding: 20px;">
+        <h3>Teacher Directory</h3>
+        <table style="width: 100%; text-align: left; margin-top: 15px; border-collapse: collapse;">
+            <thead style="background-color: #f4f4f4;">
+                <tr>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Teacher Code</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Name</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Email</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Department</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="teacherTableBody">
+                <!-- Teacher rows will be injected here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
 
-                        <div class="empty-icon">
-                            <i class="fa-solid fa-layer-group"></i>
-                        </div>
-
-                        <h3 id="dynamicTitle">Page</h3>
-
-                        <p>
-                            This module is ready for frontend development.
-                        </p>
-
-                        <button class="btn primary-btn">
-                            <i class="fa-solid fa-plus"></i>
-                            Add New
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </section>
-
+</section>
         </main>
 
     </div>
@@ -726,7 +769,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/student.js"></script>
+    <script src="js/teacher.js"></script>
+
 
 </body>
 </html>
