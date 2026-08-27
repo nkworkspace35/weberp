@@ -1,4 +1,4 @@
-const TEACHER_API_BASE_URL = 'http://localhost:5000/api';
+const TEACHER_API_BASE_URL = 'https://weberp-seven.vercel.app/api';
 
 let allTeachers = [];
 let editingTeacherId = null;

@@ -51,8 +51,11 @@ app.use('/api/dashboard', dashboardRoutes);
 // ================= START SERVER =================
 app.listen(PORT, () => {
     console.log("====================================");
-    console.log("          ERP PORTAL BACKEND        ");
+    console.log("        ERP PORTAL BACKEND        ");
     console.log("====================================");
     console.log(`Server running on: http://localhost:${PORT}`);
     console.log("====================================");
 });
+
+
+module.exports = app;

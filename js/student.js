@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://weberp-seven.vercel.app/api';
 
 // Global variables to manage edit state
 let allStudents = [];
@@ -83,6 +83,7 @@ function populateEditForm(id) {
     if (mainPageTitle) mainPageTitle.innerText = "Edit Student";
     if (breadcrumb) breadcrumb.innerText = "Edit Student";
 }
+
 // Function to handle Add or Update form submission
 document.getElementById('addStudentForm')?.addEventListener('submit', async function (event) {
     event.preventDefault(); 

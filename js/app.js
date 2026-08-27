@@ -140,10 +140,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load dashboard by default when the page loads
     openPage("dashboard");
 });
+
 // ================= DASHBOARD DYNAMIC STATS =================
 async function loadDashboardStats() {
     try {
-        const response = await fetch('http://localhost:5000/api/dashboard/stats');
+        // CHANGED HERE: Updated localhost to Vercel URL
+        const response = await fetch('https://weberp-seven.vercel.app/api/dashboard/stats');
         const result = await response.json();
 
         if (result.success) {
