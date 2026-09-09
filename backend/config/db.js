@@ -1,12 +1,8 @@
-const mysql = require('mysql'); // Use 'mysql2' if you installed the mysql2 package
+const mysql = require('mysql2');
 
-// TiDB Database Connection (with SSL and Port 4000)
+// Using the single DATABASE_URL string from TiDB Cloud
 const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME || 'test',
-  port: process.env.DB_PORT || 3306,
+  uri: process.env.DATABASE_URL,
   ssl: {
     minVersion: 'TLSv1.2',
     rejectUnauthorized: true
