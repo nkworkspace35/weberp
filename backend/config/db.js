@@ -1,21 +1,20 @@
-const mysql = require('mysql2');
+const { Pool } = require('pg');
 
-// Using the single DATABASE_URL string from TiDB Cloud
-const db = mysql.createPool({
-  uri: process.env.DATABASE_URL,
+// Supabase PostgreSQL Database Connection
+const db = new Pool({
+  connectionString: process.env.DATABASE_URL,
   ssl: {
-    minVersion: 'TLSv1.2',
-    rejectUnauthorized: true
+    rejectUnauthorized: false
   }
 });
 
 // Connection Test Check
-db.getConnection((err, connection) => {
+db.connect((err, client, release) => {
   if (err) {
     console.error("Database connection failed:", err.message);
   } else {
-    console.log("MySQL connected successfully to TiDB Cloud!");
-    connection.release();
+    console.log("Connected successfully to Supabase PostgreSQL!");
+    release(); 
   }
 });
 
