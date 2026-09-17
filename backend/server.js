@@ -23,17 +23,17 @@ app.get("/", (req, res) => {
 // ================= TEST DB ROUTE =================
 app.get("/api/test-db", async (req, res) => {
     try {
-        const [result] = await db.query("SELECT 1 AS result");
+        const result = await db.query("SELECT 1 AS result");
         res.json({
             success: true,
-            message: "MySQL connected successfully",
-            database: result
+            message: "PostgreSQL connected successfully",
+            database: result.rows
         });
     } catch (error) {
         console.error("Database Error:", error);
         res.status(500).json({
             success: false,
-            message: "MySQL connection failed",
+            message: "PostgreSQL connection failed",
             error: error.message
         });
     }
@@ -57,7 +57,4 @@ app.listen(PORT, () => {
     console.log("====================================");
 });
 
-
 module.exports = app;
-
-
